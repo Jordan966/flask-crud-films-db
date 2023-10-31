@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class='row'>
+    <div class='center'>
+      <h3 class="heading">ADD FILM</h3><hr>
+      <form method='post' action='{{url_for("addFilm")}}'>
+        <div class='form-group'>
+          <label>Title</label>
+          <input type='text' name='title' required class='form-control'>
+        </div>
+        <div class='form-group'>
+          <label>Year Released</label>
+          <input type='number' name='yearReleased' required class='form-control'>
+        </div>
+        <div class='form-group'>
+          <label>Rating</label>
+          <input type='text' name='rating' required class='form-control'>
+        </div>
+        <div class='form-group'>
+          <label>Duration</label>
+          <input type='number' name='duration' required class='form-control'>
+        </div>
+        <div class='form-group'>
+          <label>Genre</label>
+          <input type='text' name='genre' required class='form-control'>
+        </div>
+        <input type='submit' value='Submit' class='btn btn-primary'>
+      </form>
+    
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <h3 class='heading'>FILMFLIX DB VIEWER</h3>
+  <p class='text-right'><a href='{{url_for("addFilm")}}' class='add-film-btn'>  Add Film</a></p>
+  <table class='table-container'>
+    <thead>
+      <th>Film ID</th>
+      <th>Title</th>
+      <th>Year Released</th>
+      <th>Duration</th>
+      <th>Rating</th>
+      <th>Genre</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+      {% for row in allRecords %}
+        <tr>
+          <td>{{loop.index}}</td>
+          <td>{{row.title}}</td>
+          <td>{{row.yearReleased}}</td>
+          <td>{{row.rating}}</td>
+          <td>{{row.duration}}</td>
+          <td>{{row.genre}}</td>
+          <td class="edit"><a href='{{url_for("editFilm",filmID=row.filmID)}}'>Edit</a></td>
+          <td class="delete"><a href='{{url_for("delete_user",filmID=row.filmID)}}' onclick='return confirm("Are You Sure")'>Delete</a></td>
+        </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+{% endblock %}
